@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('meet_greets', {
+    await queryInterface.createTable("meet_greets", {
       meet_greet_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
@@ -25,9 +25,17 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
+      band_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      event_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('meet_greets');
-  }
+    await queryInterface.dropTable("meet_greets");
+  },
 };

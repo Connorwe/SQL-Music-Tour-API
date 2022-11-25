@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Stage_Event extends Model {
     /**
@@ -13,32 +11,43 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Stage_Event.init({
-    stage_event_id: { 
-      type: DataTypes.INTEGER,
-      allowNull: false
+  Stage_Event.init(
+    {
+      stage_event_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      genre: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      available_start_time: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      end_time: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      stage_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      event_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    genre: { 
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    available_start_time: { 
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    end_time: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-  }, {
-    sequelize,
-    modelName: 'Stage_Event',
-    tableName: 'stage_events',
-    timestamps: false
-  });
+    {
+      sequelize,
+      modelName: "Stage_Event",
+      tableName: "stage_events",
+      timestamps: false,
+    }
+  );
   return Stage_Event;
 };
